@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="lib/angular-1.3.0.js" type="text/javascript"></script>
+    <script src="CommonService.js" type="text/javascript"></script>
+    <link href="css/style.css"  type="text/css" rel="stylesheet"/>
+</head>
+<style>
+
+</style>
+<body>
+
+<div ng-controller="myAppCtrl">
+{{result}}
+{{ztbCountdown.h}}时{{ztbCountdown.m}}分{{ztbCountdown.s}}秒
+</div>
+<script type="text/javascript">
+    //[]中依赖公共模块   后面引入公共模块中的公用service  比如MathService ZTBCountdown 等
+    angular.module("myApp",['common.service']).controller("myAppCtrl",["$scope","MathService",'ZTBCountdown','$timeout',function($scope,MathService,ZTBCountdown,$timeout){
+       //  $scope.ztbCountdown=ZTBCountdown(1456099961000);
+         $scope.result=MathService.add(1,3);
+        startZTBCountdown(1456099961000);
+        function startZTBCountdown(systemDate) {
+            $scope.ztbCountdown = ZTBCountdown(systemDate);
+            if($scope.ztbCountdown.flag === false) {
+
+            } else {
+                $timeout(startZTBCountdown, 1000);
+            }
+        }
+    }]);
+
+</script>
+</body>
+</html>
