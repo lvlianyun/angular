@@ -2,7 +2,7 @@
  * Created by lvly on 2016/2/22.
  */
     //公共模块
-var commonModule=angular.module("common.service",[]);
+var commonModule=angular.module("common.service",['ngResource']);
 commonModule.factory('MathService',[function(){
     return {
         add:function(a,b){
@@ -13,6 +13,45 @@ commonModule.factory('MathService',[function(){
         }
     }
 }]);
+commonModule.factory('Pager', ['$resource', function($resource) {
+    var result = {
+        init: function(scope, url, urlParam, param) {
+
+            var page,
+                arguLen = arguments.length,
+                callBackFun = typeof arguments[arguLen-1] === "function"
+                    ? arguments[arguLen-1] : angular.noop;
+
+            url.lastIndexOf("?") !=-1 ? url+="&" : url+="?";
+            url+='pageNo=:pageNo';
+
+            param ? param.pageNo = 1 : param = {pageNo:1};
+
+            page = $resource(url,urlParam).get(param, callBackFun);
+
+            scope._pageChange = function(pNo){
+
+                var param = result._rfParam || {};
+                param.pageNo = pNo;
+                page.$get(param, callBackFun);
+            };
+
+            return page;
+
+        },
+
+        refresh:function(page,param){
+
+            param = param || {};
+            param.pageNo = 1;
+            page.$get(param);
+            result._rfParam = param;
+        }
+    };
+
+    return result;
+}]);
+
 commonModule.factory('ZTBCountdown', [function() {
 
     var __systemDate;
