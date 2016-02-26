@@ -2,24 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6014e471-e8f6-411f-b1e4-2397f5ac2fab" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/20.1.指令.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/20.10 指令.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/20.3 指令.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/20.4 指令.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/20.5 指令.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/20.6 指令.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/20.7.1 指令.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/20.7.2 指令.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/20.7.3 指令.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/20.7.4 指令.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/20.7.5 指令 .html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/20.8.1 指令.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/20.8.2 指令.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/20.9 指令.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/filter过滤器/demo.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/filter过滤器/filter.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/script.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/script20.1.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/compile 和link 的区别.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="angular.iws" />
@@ -83,11 +66,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="angular.run.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="angular.run.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/angular.run.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.42973286">
-              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state vertical-scroll-proportion="-9.1470585">
+              <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="compile 和link 的区别.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/compile 和link 的区别.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.20325203">
+              <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -123,16 +116,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="20.7.5 指令 .html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/20.7.5 指令 .html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.8985505">
-              <caret line="49" column="55" selection-start-line="49" selection-start-column="55" selection-end-line="49" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="20.8.1 指令.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/20.8.1 指令.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -149,8 +132,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -188,6 +171,7 @@
         <option value="$PROJECT_DIR$/20.7.3 指令.html" />
         <option value="$PROJECT_DIR$/20.7.4 指令.html" />
         <option value="$PROJECT_DIR$/20.7.5 指令 .html" />
+        <option value="$PROJECT_DIR$/compile 和link 的区别.html" />
       </list>
     </option>
   </component>
@@ -368,14 +352,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/filter.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/filter1.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1299,8 +1275,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/angular.run.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42973286">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state vertical-scroll-proportion="-9.1470585">
+          <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compile 和link 的区别.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20325203">
+          <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
           <folding />
         </state>
       </provider>

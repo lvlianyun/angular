@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <ol>compile函数的作用是对指令的模板进行转换</ol>
+    <ol>link 的作用是在指令和模型直接建立关联，包括对元素事件的绑定</ol>
+    <ol>scope 在link 阶段才会绑定到元素上，所以在compile 阶段使用scope 会报错</ol>
+    <ol>对于同一个指令的多个实例，compile 之后执行一次，link没次都会执行一次</ol>
+    <ol>如果自定义了compile函数，那么自定义的link函数无效，compile 会返回link函数</ol>
+</ul>
+</body>
+</html>
