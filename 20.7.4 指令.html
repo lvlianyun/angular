@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="dirAppModule">
+<head>
+    <title>20.7.4 指令-scope</title>
+    <meta charset="utf-8">
+    <script src="lib/angular-1.3.0.js"></script>
+    <script type="text/ng-template" id="text.html">
+        <div>
+            <h3 style="background-color:{{color}}" ng-transclude></h3>
+        </div>
+    </script>
+
+    <style type="text/css">
+        * {
+            font-family: 'MICROSOFT YAHEI';
+            font-size: 12px
+        }
+
+        h3 {
+            color: #CB2027
+        }
+    </style>
+</head>
+<body>
+<div ng-controller="bgColor">
+    <p>父作用域的color值:{{color}}</p>
+    <input ng-model="color" placeholder="请输入颜色值"/>
+    <br/>
+    <cd-hello><span>code_bunny</span></cd-hello>
+</div>
+<script>
+    var appModule = angular.module('dirAppModule', []);
+    appModule.controller('bgColor', function ($scope) {
+    });
+    appModule.directive('cdHello', function () {
+        return {
+            restrict: 'EAC',
+            templateUrl: 'text.html',
+            //scope值为true:创建一个继承了父作用域的子作用域,这样,指令可以访问到父作用域里的值,
+            // 父作用域的属性值一旦被修改,子作用域里相应的属性值也会被修改,但是子作用域里的属性值修改,不会影响到父作用域里的属性值
+            replace: true,
+            transclude: 'element',
+            scope: true,
+            link: function (scope, ele, attrs, ctrl, trans) {
+                ele.bind('click', function () {
+                    scope.$apply(function () {
+                        scope.color = '#C0DCC0'
+                    })
+                });
+                ele.bind('mouseover', function () {
+                    ele.css({'cursor': 'pointer'})
+                });
+            }
+        }
+    });
+
+</script>
+</body>
+</html>
+
+
+
+
+
+

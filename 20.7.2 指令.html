@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="dirAppModule">
+<head>
+  <title>20.7(2)指令-scope</title>
+  <meta charset="utf-8">
+  <script src="lib/angular-1.3.0.js"></script>
+  <script type="text/ng-template" id="text.html">
+    <div>
+      <h3 style="color:{{text_color}};background-color:{{color}}" ng-transclude></h3>
+    </div>
+  </script>
+
+  <style type="text/css">
+    *{
+      font-family:'MICROSOFT YAHEI';
+      font-size:12px
+    }
+    h3 {
+      color:#CB2027
+    }
+  </style>
+</head>
+<body>
+  <div ng-controller="bgColor">
+    <input ng-model="color" placeholder="请输入颜色值"/>
+    <br/>
+    <cd-hello bg-color="color"><span>code_bunny</span></cd-hello>
+    <!--元素属性名和作用域下的属性名可以相同 <cd-hello color="color"><span>code_bunny</span></cd-hello>-->
+  </div>
+<script>
+  var appModule = angular.module('dirAppModule', []);
+  appModule.controller('bgColor',function($scope){});
+  appModule.directive('cdHello',function(){
+    return {
+      restrict:'EAC',
+      templateUrl:'text.html',
+      replace:true,
+      transclude:'element',
+      scope:{
+        color:'=bgColor'// = 表示可以改变父元素  父元素也可以改变子元素
+      },
+      link:function(scope,ele,attrs,ctrl,trans){
+        ele.bind('click',function(){
+          scope.$apply(function(){
+            scope.color = '#C0DCC0'
+          })
+        });
+        ele.bind('mouseover',function(){
+          ele.css({'cursor':'pointer'})
+        });
+      }
+    }
+  });
+</script>
+</body>
+</html>
+
+
+
+
+
+

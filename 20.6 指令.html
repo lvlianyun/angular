@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="dirAppModule">
+<head>
+  <title>20.6指令</title>
+  <meta charset="utf-8">
+  <script src="lib/angular-1.3.0.js"></script>
+  <script type="text/ng-template" id="text.html">
+    <div>
+      <h3 style="background-color:{{color}}" ng-transclude></h3>
+    </div>
+  </script>
+
+  <style type="text/css">
+    *{
+      font-family:'MICROSOFT YAHEI';
+      font-size:12px
+    }
+    h3 {
+      color:#CB2027
+    }
+  </style>
+</head>
+<body>
+  <div ng-controller="bgColor">
+    <input ng-model="color" placeholder="请输入颜色值"/>
+    <br/>
+    <cd-hello name="bunny"><span>code_bunny</span></cd-hello>
+  </div>
+<script>
+  var appModule = angular.module('dirAppModule', []);
+  appModule.controller('bgColor',function($scope){});
+  appModule.directive('cdHello',function($timeout){
+    return {
+      restrict:'EAC',
+      templateUrl:'text.html',
+      replace:true,
+      transclude:true,
+      link:function(scope,ele,attrs,ctrl,trans){
+        ele.bind('click',function(){
+          /*scope.$apply(function(){//必须要用$Apply 页面才可以改变页面 或者用$timeout
+            scope.color = '#C0DCC0'
+          })*/
+          $timeout(function(){//$timeout 自带出发更新页面
+               scope.color = '#C0DCC0';
+          },0)
+        });
+        ele.bind('mouseover',function(){
+          ele.css({'cursor':'pointer'})
+        });
+      }
+    }
+  });
+</script>
+</body>
+</html>
+
+
+
+
+
+
