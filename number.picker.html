@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="dirAppModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="lib/angular-1.3.0.js"></script>
+</head>
+<style>
+    .number-picker {
+        display: inline-block;
+    }
+
+    .number-picker button {
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
+        -webkit-appearance: none;
+        outline: 0;
+        height: 28px;
+        width :25px;
+        border: 1px solid #ddd;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 0 6px 2px;
+        color: #666;
+        background: #f0f0f0;
+        cursor: pointer;
+    }
+    .number-picker button:hover {
+        color: #333;
+        background: #e0e0e0;
+    }
+    .number-picker input{
+        vertical-align: middle;
+        text-align: center;
+        font-size: 14px;
+        line-height: 28px;
+        height: 28px;
+        outline: 0;
+        width: 34px;
+        border: 0px;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        padding: 0;
+    }
+
+</style>
+<body>
+<input type="text" ng-model="name" value="3"/>
+<div number-picker ng-model="name" data-mininum=0 data-maxinum=10 data-number-steep=0.1></div>
+
+</div>
+<script>
+    var appModule = angular.module('dirAppModule', []);
+    appModule.directive('numberPicker', [function() {
+
+        return {
+            template: getTemplat(),
+            replace : true,
+            scope: {
+                value  : '=ngModel'
+
+            },
+            controller : ['$filter', '$scope', '$attrs',
+                function($filter, $scope,  $attrs){
+
+                    var steep   = +$attrs.numberSteep,
+                            mininum = +$attrs.mininum,
+                            maxinum = +$attrs.maxinum;
+
+                    $scope.minus = function(){
+                        var value = +$scope.value;
+                        if(value- steep < mininum) return
+
+                        $scope.value = $filter('number')(value-steep, 1);
+                    };
+
+                    $scope.add = function(){
+                        var value = +$scope.value;
+                        if(value+ steep > maxinum) return
+
+                        $scope.value = $filter('number')(value+steep, 1);
+                    };
+
+                    $scope.keypress = function(e) {
+                        var char = e.charCode || e.keyCode;
+
+                        if(!((char >= 48 && char <= 57) || char == 46 || char == 0 || char == 8))
+                            e.preventDefault();
+                    };
+
+                    $scope.blur = function() {
+                        if(!$scope.value)
+                            $scope.value = 0.1;
+                        $scope.value = $filter('number')($scope.value, 1);
+                    };
+
+                }]
+        };
+
+        function getTemplat() {
+            return '<div class="number-picker">'
+                    +'<button type="button" data-ng-click=minus()>−</button>'
+                    +'<input type="text" data-ng-model="value" data-ng-model="keypress" data-ng-keypress="keypress($event)" data-ng-blur="blur()">'
+                    +'<button  type="button" data-ng-click=add()>+</button>'
+                    +'</div>';
+        };
+    }]);
+</script>
+</body>
+</html>
